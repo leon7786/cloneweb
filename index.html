@@ -6,26 +6,26 @@
   <title>远大港湾网络基建</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=PT+Serif:wght@400;700&family=Schibsted+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
   <style>
     :root {
-      --bg-green: #F2FBEF;
-      --bg-green-soft: #E9FAE7;
-      --border-green: #E4E7C6;
-      --line-green: #E1F0DC;
-      --ink-dark: #002125;
-      --ink-deeper: #012E33;
-      --accent-bright: #98FB98;
-      --text-btn: #CEFDCE;
-      --icon-dark: #092A09;
-      --title-olive: #819640;
+      --bg-blue: #F0F4FA;
+      --bg-blue-soft: #E3EBF6;
+      --border-blue: #C9D4E8;
+      --line-blue: #D0D9EC;
+      --ink-dark: #0F1B2D;
+      --ink-deeper: #162A45;
+      --accent-bright: #C9A96E;
+      --text-btn: #E8DCC8;
+      --icon-dark: #1A1A1A;
+      --title-accent: #2C5282;
       --white: #FFFFFF;
       --gray-900: #111827;
       --gray-500: #6B7280;
       --gray-400: #9CA3AF;
       --line-gray: #DDDDDD;
       --card-bg: #F9FAFB;
-      --shadow: 0 10px 30px rgba(0, 33, 37, 0.08);
+      --shadow: 0 10px 30px rgba(15, 27, 45, 0.10);
     }
 
     * { box-sizing: border-box; }
@@ -33,7 +33,7 @@
     html, body {
       margin: 0;
       padding: 0;
-      font-family: 'Schibsted Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
       color: var(--gray-900);
       background: var(--white);
       scroll-behavior: smooth;
@@ -48,7 +48,7 @@
 
     .section-space { padding: 88px 0; }
 
-    .serif { font-family: 'PT Serif', Georgia, serif; }
+    .serif { font-family: 'Playfair Display', Georgia, serif; }
 
     .nav-wrap {
       position: fixed;
@@ -78,10 +78,10 @@
     }
 
     .logo {
-      font-family: 'PT Serif', Georgia, serif;
-      font-weight: 700;
-      letter-spacing: 1px;
-      font-size: 22px;
+      font-family: 'Playfair Display', Georgia, serif;
+      font-weight: 600;
+      letter-spacing: 2px;
+      font-size: 21px;
       color: var(--ink-dark);
       white-space: nowrap;
     }
@@ -114,7 +114,7 @@
       display: inline-flex;
       align-items: center;
       gap: 20px;
-      font-family: 'Schibsted Grotesk', sans-serif;
+      font-family: 'Inter', sans-serif;
       font-size: 16px;
       font-weight: 500;
       cursor: pointer;
@@ -165,7 +165,7 @@
 
     .hero {
       padding: 140px 0 60px;
-      background: var(--bg-green);
+      background: var(--bg-blue);
       overflow: hidden;
       position: relative;
     }
@@ -188,7 +188,7 @@
       word-break: keep-all;
     }
 
-    .hero .olive { color: var(--title-olive); }
+    .hero .olive { color: var(--title-accent); }
 
     .hero-sub {
       margin: 16px auto 32px;
@@ -284,7 +284,7 @@
       width: 8px;
       height: 8px;
       border-radius: 50%;
-      background: #C9D7C5;
+      background: #B0BDD5;
       border: none;
       cursor: pointer;
       transition: transform .2s ease, background .2s ease;
@@ -304,7 +304,7 @@
     }
 
     .flow-wrap {
-      border: 3px solid var(--border-green);
+      border: 3px solid var(--border-blue);
       border-radius: 16px;
       padding: 24px;
       overflow-x: auto;
@@ -321,7 +321,7 @@
     .flow-item {
       position: relative;
       background: var(--white);
-      border: 1px solid #EFF2D5;
+      border: 1px solid #DEE3F0;
       border-radius: 14px;
       min-height: 132px;
       padding: 14px 12px;
@@ -332,10 +332,10 @@
       text-align: center;
       font-size: 14px;
       font-weight: 600;
-      color: #2B3B2E;
+      color: #1E2D45;
     }
 
-    .flow-item.highlight { background: var(--bg-green-soft); }
+    .flow-item.highlight { background: var(--bg-blue-soft); }
 
     .flow-item:not(:last-child)::after {
       content: '';
@@ -345,14 +345,14 @@
       width: 12px;
       height: 2px;
       transform: translateY(-50%);
-      background: var(--line-green);
+      background: var(--line-blue);
       z-index: 2;
     }
 
     .flow-icon { width: 34px; height: 34px; margin-bottom: 10px; }
 
     .services {
-      background: var(--bg-green);
+      background: var(--bg-blue);
     }
 
     .service-grid {
@@ -364,7 +364,7 @@
     .service-card {
       background: var(--white);
       border-radius: 24px;
-      border: 1px solid #EBEFEA;
+      border: 1px solid #E0E5EF;
       height: 392px;
       display: flex;
       flex-direction: column;
@@ -406,9 +406,9 @@
       position: sticky;
       top: 96px;
       border-radius: 28px;
-      background: linear-gradient(160deg, #E9FAE7, #F2FBEF 55%, #DDF2D8);
+      background: linear-gradient(160deg, #E9FAE7, #F2FBEF 55%, #D4E0F2);
       min-height: 520px;
-      border: 1px solid #DCEFD7;
+      border: 1px solid #CCD8EC;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -431,7 +431,7 @@
       width: 34px;
       height: 34px;
       border-radius: 10px;
-      background: var(--bg-green-soft);
+      background: var(--bg-blue-soft);
       display: flex;
       align-items: center;
       justify-content: center;
@@ -453,10 +453,10 @@
 
     .deploy-card {
       position: relative;
-      background: var(--bg-green);
+      background: var(--bg-blue);
       border-radius: 14px;
       padding: 24px;
-      border: 1px solid #E1EFDF;
+      border: 1px solid #D0D9EC;
       overflow: hidden;
       transition: transform .28s ease, box-shadow .28s ease;
     }
@@ -472,7 +472,7 @@
       right: 0;
       width: 64px;
       height: 64px;
-      background: linear-gradient(135deg, transparent 50%, #BFEFB9 50%);
+      background: linear-gradient(135deg, transparent 50%, #C9A96E 50%);
     }
 
     .deploy-arrow {
@@ -487,7 +487,7 @@
     .deploy-card:hover .deploy-arrow { transform: rotate(-45deg); }
 
     .testimonial {
-      background: var(--bg-green);
+      background: var(--bg-blue);
       position: relative;
       overflow: hidden;
     }
@@ -514,7 +514,7 @@
       cursor: pointer;
     }
 
-    .round-btn svg { width: 18px; height: 18px; stroke: var(--accent-bright); fill: none; stroke-width: 2.2; }
+    .round-btn svg { width: 18px; height: 18px; stroke: #C9A96E; fill: none; stroke-width: 2.2; }
 
     .testimonial-shell {
       position: relative;
@@ -538,7 +538,7 @@
       height: 100%;
       border-radius: 20px;
       background: var(--white);
-      border: 1px solid #EAEFDE;
+      border: 1px solid #DFE5F0;
       padding: 22px;
       display: flex;
       flex-direction: column;
@@ -567,15 +567,15 @@
       z-index: 3;
     }
 
-    .fade-left { left: 0; background: linear-gradient(to right, var(--bg-green), transparent); }
-    .fade-right { right: 0; background: linear-gradient(to left, var(--bg-green), transparent); }
+    .fade-left { left: 0; background: linear-gradient(to right, var(--bg-blue), transparent); }
+    .fade-right { right: 0; background: linear-gradient(to left, var(--bg-blue), transparent); }
 
     .logo-strip {
       margin-top: 34px;
       overflow: hidden;
       position: relative;
-      border-top: 1px solid #DDEED8;
-      border-bottom: 1px solid #DDEED8;
+      border-top: 1px solid #CDD5E8;
+      border-bottom: 1px solid #CDD5E8;
       padding: 16px 0;
     }
 
@@ -589,13 +589,13 @@
     .logo-strip:hover .logo-track { animation-play-state: paused; }
 
     .logo-item {
-      border: 1px solid #D9E8D5;
+      border: 1px solid #CCD5E8;
       border-radius: 999px;
       padding: 9px 16px;
       background: var(--white);
       white-space: nowrap;
       font-weight: 600;
-      color: #34503A;
+      color: #2A4060;
     }
 
     @keyframes marquee {
@@ -628,11 +628,11 @@
       width: 36px;
       height: 36px;
       border-radius: 50%;
-      border: 1px solid #D9DFD7;
+      border: 1px solid #CDD3E0;
       display: flex;
       align-items: center;
       justify-content: center;
-      color: #2A4A35;
+      color: #1E3A5F;
     }
 
     .copyright {
@@ -721,7 +721,7 @@
           <span class="line-anim"><span class="olive">网络隧道</span></span>&nbsp;<span class="line-anim">安全基建</span>
         </h1>
         <p class="hero-sub hero-sub-anim">
-          <svg class="star-icon" viewBox="0 0 24 24" fill="#819640" stroke="none"><path d="M12 2l2.9 6.3L22 9.3l-5 4.6L18.2 21 12 17.3 5.8 21 7 13.9 2 9.3l7.1-1L12 2z"/></svg>
+          <svg class="star-icon" viewBox="0 0 24 24" fill="#2C5282" stroke="none"><path d="M12 2l2.9 6.3L22 9.3l-5 4.6L18.2 21 12 17.3 5.8 21 7 13.9 2 9.3l7.1-1L12 2z"/></svg>
           为中国国有企业提供专业网络隧道与安全基础设施服务
         </p>
         <div class="hero-cta hero-cta-anim">
@@ -736,7 +736,7 @@
 
         <div class="news-section">
           <div class="news-bar" aria-label="滚动新闻">
-            <svg class="news-star" viewBox="0 0 24 24" fill="#819640" stroke="none"><path d="M12 2l2.9 6.3L22 9.3l-5 4.6L18.2 21 12 17.3 5.8 21 7 13.9 2 9.3l7.1-1L12 2z"/></svg>
+            <svg class="news-star" viewBox="0 0 24 24" fill="#2C5282" stroke="none"><path d="M12 2l2.9 6.3L22 9.3l-5 4.6L18.2 21 12 17.3 5.8 21 7 13.9 2 9.3l7.1-1L12 2z"/></svg>
             <div id="newsText" class="news-text">远大港湾成功部署国企跨区域安全隧道项目</div>
             <div class="news-dots" id="newsDots"></div>
           </div>
@@ -750,31 +750,31 @@
         <div class="flow-wrap reveal-flow">
           <div class="flow-row">
             <div class="flow-item">
-              <svg class="flow-icon" viewBox="0 0 24 24" fill="none" stroke="#29553A" stroke-width="1.8"><rect x="4" y="6" width="16" height="12" rx="2"/><path d="M8 10h8M8 14h5"/></svg>
+              <svg class="flow-icon" viewBox="0 0 24 24" fill="none" stroke="#1B3557" stroke-width="1.8"><rect x="4" y="6" width="16" height="12" rx="2"/><path d="M8 10h8M8 14h5"/></svg>
               企业数据
             </div>
             <div class="flow-item highlight">
-              <svg class="flow-icon" viewBox="0 0 24 24" fill="none" stroke="#29553A" stroke-width="1.8"><path d="M12 3l8 4v5c0 5-3.4 8-8 9-4.6-1-8-4-8-9V7l8-4z"/><path d="M9 12l2 2 4-4"/></svg>
+              <svg class="flow-icon" viewBox="0 0 24 24" fill="none" stroke="#1B3557" stroke-width="1.8"><path d="M12 3l8 4v5c0 5-3.4 8-8 9-4.6-1-8-4-8-9V7l8-4z"/><path d="M9 12l2 2 4-4"/></svg>
               加密网关
             </div>
             <div class="flow-item">
-              <svg class="flow-icon" viewBox="0 0 24 24" fill="none" stroke="#29553A" stroke-width="1.8"><path d="M3 12h18"/><path d="M7 7l-4 5 4 5M17 7l4 5-4 5"/></svg>
+              <svg class="flow-icon" viewBox="0 0 24 24" fill="none" stroke="#1B3557" stroke-width="1.8"><path d="M3 12h18"/><path d="M7 7l-4 5 4 5M17 7l4 5-4 5"/></svg>
               安全隧道
             </div>
             <div class="flow-item highlight">
-              <svg class="flow-icon" viewBox="0 0 24 24" fill="none" stroke="#29553A" stroke-width="1.8"><circle cx="12" cy="12" r="8"/><path d="M12 8v4l3 2"/></svg>
+              <svg class="flow-icon" viewBox="0 0 24 24" fill="none" stroke="#1B3557" stroke-width="1.8"><circle cx="12" cy="12" r="8"/><path d="M12 8v4l3 2"/></svg>
               流量审计
             </div>
             <div class="flow-item">
-              <svg class="flow-icon" viewBox="0 0 24 24" fill="none" stroke="#29553A" stroke-width="1.8"><rect x="3" y="4" width="18" height="14" rx="2"/><path d="M8 20h8"/></svg>
+              <svg class="flow-icon" viewBox="0 0 24 24" fill="none" stroke="#1B3557" stroke-width="1.8"><rect x="3" y="4" width="18" height="14" rx="2"/><path d="M8 20h8"/></svg>
               目标节点
             </div>
             <div class="flow-item">
-              <svg class="flow-icon" viewBox="0 0 24 24" fill="none" stroke="#29553A" stroke-width="1.8"><rect x="5" y="10" width="14" height="10" rx="2"/><path d="M8 10V7a4 4 0 1 1 8 0v3"/></svg>
+              <svg class="flow-icon" viewBox="0 0 24 24" fill="none" stroke="#1B3557" stroke-width="1.8"><rect x="5" y="10" width="14" height="10" rx="2"/><path d="M8 10V7a4 4 0 1 1 8 0v3"/></svg>
               解密还原
             </div>
             <div class="flow-item">
-              <svg class="flow-icon" viewBox="0 0 24 24" fill="none" stroke="#29553A" stroke-width="1.8"><path d="M4 13l5 5L20 7"/></svg>
+              <svg class="flow-icon" viewBox="0 0 24 24" fill="none" stroke="#1B3557" stroke-width="1.8"><path d="M4 13l5 5L20 7"/></svg>
               安全到达 · 低延迟高可用
             </div>
           </div>
@@ -788,7 +788,7 @@
         <div class="service-grid">
           <article class="service-card reveal-card" style="transition-delay:0ms">
             <div class="service-content">
-              <svg width="54" height="54" viewBox="0 0 24 24" fill="none" stroke="#2E5B3D" stroke-width="1.7"><path d="M4 7h16v10H4z"/><path d="M4 11h16M8 15h3"/></svg>
+              <svg width="54" height="54" viewBox="0 0 24 24" fill="none" stroke="#1E3A5F" stroke-width="1.7"><path d="M4 7h16v10H4z"/><path d="M4 11h16M8 15h3"/></svg>
               <h3>标准隧道方案</h3>
               <p class="feature-desc">开箱即用的加密隧道，适合中小型国企日常办公需求。</p>
             </div>
@@ -799,7 +799,7 @@
 
           <article class="service-card reveal-card" style="transition-delay:100ms">
             <div class="service-content">
-              <svg width="54" height="54" viewBox="0 0 24 24" fill="none" stroke="#2E5B3D" stroke-width="1.7"><path d="M3 12h18"/><path d="M12 3v18"/><circle cx="12" cy="12" r="3"/></svg>
+              <svg width="54" height="54" viewBox="0 0 24 24" fill="none" stroke="#1E3A5F" stroke-width="1.7"><path d="M3 12h18"/><path d="M12 3v18"/><circle cx="12" cy="12" r="3"/></svg>
               <h3>行业定制方案</h3>
               <p class="feature-desc">针对金融、能源、交通等行业的专属网络隧道优化方案。</p>
             </div>
@@ -810,7 +810,7 @@
 
           <article class="service-card reveal-card" style="transition-delay:200ms">
             <div class="service-content">
-              <svg width="54" height="54" viewBox="0 0 24 24" fill="none" stroke="#2E5B3D" stroke-width="1.7"><path d="M5 4h14v16H5z"/><path d="M8 8h8M8 12h8M8 16h5"/></svg>
+              <svg width="54" height="54" viewBox="0 0 24 24" fill="none" stroke="#1E3A5F" stroke-width="1.7"><path d="M5 4h14v16H5z"/><path d="M8 8h8M8 12h8M8 16h5"/></svg>
               <h3>企业专属方案</h3>
               <p class="feature-desc">为大型央企量身定制的全网络基础设施解决方案。</p>
             </div>
@@ -826,11 +826,11 @@
       <div class="container tech-grid">
         <div class="tech-visual">
           <svg viewBox="0 0 420 340" fill="none">
-            <rect x="40" y="40" width="340" height="260" rx="28" stroke="#A8D7A1" stroke-width="2"/>
-            <circle cx="210" cy="170" r="74" fill="#DDF2D8"/>
-            <path d="M140 170h140M210 100v140" stroke="#7BA573" stroke-width="2"/>
-            <circle cx="210" cy="170" r="34" fill="#98FB98" opacity=".35"/>
-            <path d="M206 152l-24 16 24 16M214 152l24 16-24 16" stroke="#2D5F3F" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+            <rect x="40" y="40" width="340" height="260" rx="28" stroke="#8AAED0" stroke-width="2"/>
+            <circle cx="210" cy="170" r="74" fill="#D4E0F2"/>
+            <path d="M140 170h140M210 100v140" stroke="#5E8AB5" stroke-width="2"/>
+            <circle cx="210" cy="170" r="34" fill="#C9A96E" opacity=".35"/>
+            <path d="M206 152l-24 16 24 16M214 152l24 16-24 16" stroke="#1E3A5F" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
           </svg>
         </div>
 
@@ -838,27 +838,27 @@
           <h2 class="section-title serif reveal-title">以前沿技术驱动安全网络工程</h2>
           <div class="feature-list">
             <div class="feature-item reveal-feature">
-              <div class="feature-icon"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="#29553A" stroke-width="2"><path d="M12 3l7 4v5c0 4-2.6 6.7-7 8-4.4-1.3-7-4-7-8V7z"/></svg></div>
+              <div class="feature-icon"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="#1B3557" stroke-width="2"><path d="M12 3l7 4v5c0 4-2.6 6.7-7 8-4.4-1.3-7-4-7-8V7z"/></svg></div>
               <div><div class="feature-title">军工级加密</div><div class="feature-desc">采用国密 SM2/SM4 + AES-256 双重加密标准</div></div>
             </div>
             <div class="feature-item reveal-feature">
-              <div class="feature-icon"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="#29553A" stroke-width="2"><path d="M13 2L6 13h5l-1 9 8-12h-5z"/></svg></div>
+              <div class="feature-icon"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="#1B3557" stroke-width="2"><path d="M13 2L6 13h5l-1 9 8-12h-5z"/></svg></div>
               <div><div class="feature-title">超低延迟</div><div class="feature-desc">全球骨干网直连，端到端延迟低于 20ms</div></div>
             </div>
             <div class="feature-item reveal-feature">
-              <div class="feature-icon"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="#29553A" stroke-width="2"><circle cx="12" cy="8" r="3"/><path d="M4 20a8 8 0 0 1 16 0"/></svg></div>
+              <div class="feature-icon"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="#1B3557" stroke-width="2"><circle cx="12" cy="8" r="3"/><path d="M4 20a8 8 0 0 1 16 0"/></svg></div>
               <div><div class="feature-title">零信任架构</div><div class="feature-desc">每一次访问都经过身份验证和权限校验</div></div>
             </div>
             <div class="feature-item reveal-feature">
-              <div class="feature-icon"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="#29553A" stroke-width="2"><path d="M3 7h18M6 3v4m12-4v4M5 11h14v10H5z"/></svg></div>
+              <div class="feature-icon"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="#1B3557" stroke-width="2"><path d="M3 7h18M6 3v4m12-4v4M5 11h14v10H5z"/></svg></div>
               <div><div class="feature-title">成本优化</div><div class="feature-desc">比传统 MPLS 专线降低 60% 的网络成本</div></div>
             </div>
             <div class="feature-item reveal-feature">
-              <div class="feature-icon"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="#29553A" stroke-width="2"><path d="M4 18V6m5 12V10m5 8V4m5 14v-6"/></svg></div>
+              <div class="feature-icon"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="#1B3557" stroke-width="2"><path d="M4 18V6m5 12V10m5 8V4m5 14v-6"/></svg></div>
               <div><div class="feature-title">全链路监控</div><div class="feature-desc">实时流量审计和安全态势感知</div></div>
             </div>
             <div class="feature-item reveal-feature">
-              <div class="feature-icon"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="#29553A" stroke-width="2"><rect x="3" y="7" width="18" height="10" rx="2"/><path d="M8 21h8"/></svg></div>
+              <div class="feature-icon"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="#1B3557" stroke-width="2"><rect x="3" y="7" width="18" height="10" rx="2"/><path d="M8 21h8"/></svg></div>
               <div><div class="feature-title">即插即用</div><div class="feature-desc">兼容主流云平台和现有网络基础设施</div></div>
             </div>
           </div>
@@ -873,7 +873,7 @@
           <div class="deploy-left">
             <article class="deploy-card reveal-deploy">
               <div class="corner"></div>
-              <svg class="deploy-arrow" viewBox="0 0 24 24" fill="none" stroke="#2E5B3D" stroke-width="2"><path d="M7 17L17 7M9 7h8v8"/></svg>
+              <svg class="deploy-arrow" viewBox="0 0 24 24" fill="none" stroke="#1E3A5F" stroke-width="2"><path d="M7 17L17 7M9 7h8v8"/></svg>
               <h3>公有云部署</h3>
               <p class="feature-desc">支持阿里云、华为云、腾讯云一键部署，按需付费。</p>
             </article>
@@ -881,13 +881,13 @@
           <div class="deploy-right">
             <article class="deploy-card reveal-deploy" style="transition-delay:120ms">
               <div class="corner"></div>
-              <svg class="deploy-arrow" viewBox="0 0 24 24" fill="none" stroke="#2E5B3D" stroke-width="2"><path d="M7 17L17 7M9 7h8v8"/></svg>
+              <svg class="deploy-arrow" viewBox="0 0 24 24" fill="none" stroke="#1E3A5F" stroke-width="2"><path d="M7 17L17 7M9 7h8v8"/></svg>
               <h3>混合云方案</h3>
               <p class="feature-desc">公有云与私有云无缝互联，满足等保合规要求。</p>
             </article>
             <article class="deploy-card reveal-deploy" style="transition-delay:220ms">
               <div class="corner"></div>
-              <svg class="deploy-arrow" viewBox="0 0 24 24" fill="none" stroke="#2E5B3D" stroke-width="2"><path d="M7 17L17 7M9 7h8v8"/></svg>
+              <svg class="deploy-arrow" viewBox="0 0 24 24" fill="none" stroke="#1E3A5F" stroke-width="2"><path d="M7 17L17 7M9 7h8v8"/></svg>
               <h3>私有化部署</h3>
               <p class="feature-desc">全套设备入驻企业机房，数据零出境。</p>
             </article>
@@ -921,7 +921,7 @@
                   <div class="test-quote">“远大港湾的跨区域安全隧道方案完美解决了我们分布在全国各地的办公网络互联需求，部署效率和安全性远超预期。”</div>
                   <div class="test-person">
                     <div class="avatar">
-                      <svg viewBox="0 0 42 42"><rect width="42" height="42" fill="#DDEFD6"/><circle cx="21" cy="16" r="8" fill="#93C693"/><rect x="11" y="26" width="20" height="12" rx="6" fill="#7FAF80"/></svg>
+                      <svg viewBox="0 0 42 42"><rect width="42" height="42" fill="#D4DEF0"/><circle cx="21" cy="16" r="8" fill="#7A9CC8"/><rect x="11" y="26" width="20" height="12" rx="6" fill="#6B8DB8"/></svg>
                     </div>
                     <div>
                       <div style="font-weight:600;">张伟</div>
@@ -936,7 +936,7 @@
                   <div class="test-quote">“零信任架构方案帮助我们实现了电力调度网络的全面安全升级，同时大幅降低了运维成本。”</div>
                   <div class="test-person">
                     <div class="avatar">
-                      <svg viewBox="0 0 42 42"><rect width="42" height="42" fill="#E0F2D9"/><circle cx="21" cy="16" r="8" fill="#83B78E"/><rect x="11" y="26" width="20" height="12" rx="6" fill="#6AA180"/></svg>
+                      <svg viewBox="0 0 42 42"><rect width="42" height="42" fill="#D8E2F2"/><circle cx="21" cy="16" r="8" fill="#6E90BF"/><rect x="11" y="26" width="20" height="12" rx="6" fill="#5A80AB"/></svg>
                     </div>
                     <div>
                       <div style="font-weight:600;">李明</div>
@@ -951,7 +951,7 @@
                   <div class="test-quote">“在金融行业合规要求极为严格的背景下，远大港湾的国密加密隧道方案是我们见过的最佳解决方案。”</div>
                   <div class="test-person">
                     <div class="avatar">
-                      <svg viewBox="0 0 42 42"><rect width="42" height="42" fill="#E8F5E3"/><circle cx="21" cy="16" r="8" fill="#90C88A"/><rect x="11" y="26" width="20" height="12" rx="6" fill="#7BA972"/></svg>
+                      <svg viewBox="0 0 42 42"><rect width="42" height="42" fill="#E0E8F5"/><circle cx="21" cy="16" r="8" fill="#7494C0"/><rect x="11" y="26" width="20" height="12" rx="6" fill="#6384A8"/></svg>
                     </div>
                     <div>
                       <div style="font-weight:600;">王芳</div>
