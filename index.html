@@ -1,182 +1,1029 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>CloneWeb — Intelligent Web Experiences</title>
-    <meta
-      name="description"
-      content="CloneWeb builds next-generation tools for modern web development."
-    />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="./style.css" />
-  </head>
-  <body>
-    <header class="site-header">
-      <nav class="nav-pill container">
-        <a href="#home" class="logo" aria-label="CloneWeb home">
-          <span class="logo-dot"></span>
-          CloneWeb
-        </a>
-        <button class="menu-toggle" aria-label="Open menu" aria-expanded="false">☰</button>
-        <ul class="nav-links" id="nav-links">
-          <li><a href="#home">Home</a></li>
-          <li><a href="#features">Features</a></li>
-          <li><a href="#about">About</a></li>
-          <li><a href="#contact">Contact</a></li>
-        </ul>
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>远大港湾网络基建</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=PT+Serif:wght@400;700&family=Schibsted+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg-green: #F2FBEF;
+      --bg-green-soft: #E9FAE7;
+      --border-green: #E4E7C6;
+      --line-green: #E1F0DC;
+      --ink-dark: #002125;
+      --ink-deeper: #012E33;
+      --accent-bright: #98FB98;
+      --text-btn: #CEFDCE;
+      --icon-dark: #092A09;
+      --title-olive: #819640;
+      --white: #FFFFFF;
+      --gray-900: #111827;
+      --gray-500: #6B7280;
+      --gray-400: #9CA3AF;
+      --line-gray: #DDDDDD;
+      --card-bg: #F9FAFB;
+      --shadow: 0 10px 30px rgba(0, 33, 37, 0.08);
+    }
+
+    * { box-sizing: border-box; }
+
+    html, body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Schibsted Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      color: var(--gray-900);
+      background: var(--white);
+      scroll-behavior: smooth;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    .container {
+      width: min(1180px, calc(100% - 32px));
+      margin: 0 auto;
+    }
+
+    .section-space { padding: 88px 0; }
+
+    .serif { font-family: 'PT Serif', Georgia, serif; }
+
+    .nav-wrap {
+      position: fixed;
+      top: 18px;
+      left: 0;
+      right: 0;
+      z-index: 50;
+    }
+
+    .navbar {
+      height: 64px;
+      border-radius: 999px;
+      background: var(--white);
+      box-shadow: var(--shadow);
+      border: 1px solid rgba(0,0,0,0.04);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 12px 0 22px;
+      gap: 12px;
+    }
+
+    .logo {
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      font-size: 20px;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+      color: var(--gray-500);
+      font-weight: 500;
+    }
+
+    .nav-links a:hover { color: var(--gray-900); }
+
+    .cta-btn {
+      position: relative;
+      overflow: hidden;
+      border: 0;
+      border-radius: 999px;
+      background: var(--ink-dark);
+      color: var(--text-btn);
+      height: 46px;
+      padding: 0 6px 0 18px;
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: transform .25s ease;
+      z-index: 1;
+    }
+
+    .cta-btn .fill {
+      position: absolute;
+      inset: 0;
+      background: var(--ink-deeper);
+      transform: translateX(100%);
+      transition: transform .36s ease;
+      z-index: -1;
+    }
+
+    .cta-btn .arrow-wrap {
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      background: var(--accent-bright);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      transition: transform .3s ease;
+      flex-shrink: 0;
+    }
+
+    .cta-btn svg {
+      width: 16px;
+      height: 16px;
+      stroke: var(--icon-dark);
+      stroke-width: 2.2;
+      fill: none;
+      transition: transform .3s ease;
+    }
+
+    .cta-btn:hover .fill { transform: translateX(0); }
+    .cta-btn:hover .arrow-wrap svg { transform: rotate(-45deg); }
+
+    .hero {
+      padding: 150px 0 56px;
+      background: var(--bg-green);
+      overflow: hidden;
+    }
+
+    .hero h1 {
+      margin: 0;
+      font-size: clamp(38px, 7vw, 64px);
+      line-height: 1.1;
+      letter-spacing: -1px;
+    }
+
+    .hero .olive { color: var(--title-olive); }
+
+    .hero-sub {
+      margin: 22px 0 30px;
+      color: var(--gray-500);
+      font-size: clamp(16px, 2.5vw, 20px);
+      line-height: 1.55;
+    }
+
+    .line-anim {
+      display: inline-block;
+      opacity: 0;
+      transform: translateY(16px);
+      animation: lineFade .7s forwards;
+    }
+
+    .line-anim:nth-child(1) { animation-delay: .08s; }
+    .line-anim:nth-child(2) { animation-delay: .24s; }
+    .line-anim:nth-child(3) { animation-delay: .4s; }
+
+    @keyframes lineFade {
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .news-bar {
+      margin-top: 38px;
+      background: var(--white);
+      border-radius: 999px;
+      border: 1px solid var(--line-green);
+      min-height: 62px;
+      display: flex;
+      align-items: center;
+      padding: 10px 22px;
+      gap: 14px;
+    }
+
+    .news-star { color: var(--title-olive); font-size: 18px; }
+
+    .news-text {
+      flex: 1;
+      min-height: 24px;
+      display: flex;
+      align-items: center;
+      font-weight: 500;
+      transition: opacity .35s ease, transform .35s ease;
+    }
+
+    .news-dots { display: flex; gap: 8px; }
+
+    .news-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #C9D7C5;
+      cursor: pointer;
+      transition: transform .2s ease, background .2s ease;
+    }
+
+    .news-dot.active {
+      background: var(--ink-dark);
+      transform: scale(1.25);
+    }
+
+    .section-title {
+      margin: 0 0 18px;
+      font-size: clamp(30px, 4vw, 48px);
+      line-height: 1.2;
+      letter-spacing: -.6px;
+    }
+
+    .flow-wrap {
+      border: 3px solid var(--border-green);
+      border-radius: 16px;
+      padding: 24px;
+      overflow-x: auto;
+    }
+
+    .flow-row {
+      min-width: 1050px;
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      gap: 10px;
+      align-items: center;
+    }
+
+    .flow-item {
+      position: relative;
+      background: var(--white);
+      border: 1px solid #EFF2D5;
+      border-radius: 14px;
+      min-height: 132px;
+      padding: 14px 12px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      font-size: 14px;
+      font-weight: 600;
+      color: #2B3B2E;
+    }
+
+    .flow-item.highlight { background: var(--bg-green-soft); }
+
+    .flow-item:not(:last-child)::after {
+      content: '';
+      position: absolute;
+      right: -11px;
+      top: 50%;
+      width: 12px;
+      height: 2px;
+      transform: translateY(-50%);
+      background: var(--line-green);
+      z-index: 2;
+    }
+
+    .flow-icon { width: 34px; height: 34px; margin-bottom: 10px; }
+
+    .services {
+      background: var(--bg-green);
+    }
+
+    .service-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .service-card {
+      background: var(--white);
+      border-radius: 24px;
+      border: 1px solid #EBEFEA;
+      height: 392px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 26px;
+      transition: transform .3s ease, box-shadow .3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .service-content { transition: transform .3s ease; }
+
+    .service-card:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow);
+    }
+
+    .service-card:hover .service-content { transform: translateY(-8px); }
+
+    .service-bottom {
+      opacity: 0;
+      transform: translateY(18px);
+      transition: all .3s ease;
+    }
+
+    .service-card:hover .service-bottom {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .tech-grid {
+      display: grid;
+      grid-template-columns: 1.05fr 1fr;
+      gap: 36px;
+      align-items: start;
+    }
+
+    .tech-visual {
+      position: sticky;
+      top: 96px;
+      border-radius: 28px;
+      background: linear-gradient(160deg, #E9FAE7, #F2FBEF 55%, #DDF2D8);
+      min-height: 520px;
+      border: 1px solid #DCEFD7;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    .tech-visual svg { width: 78%; max-width: 420px; }
+
+    .feature-list { border-top: 1px solid var(--line-gray); }
+
+    .feature-item {
+      display: grid;
+      grid-template-columns: 34px 1fr;
+      gap: 14px;
+      padding: 18px 0;
+      border-bottom: 1px solid var(--line-gray);
+    }
+
+    .feature-icon {
+      width: 34px;
+      height: 34px;
+      border-radius: 10px;
+      background: var(--bg-green-soft);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .feature-title { font-weight: 700; margin-bottom: 4px; }
+    .feature-desc { color: var(--gray-500); line-height: 1.55; }
+
+    .deploy-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 16px;
+    }
+
+    .deploy-left,
+    .deploy-right { display: grid; gap: 16px; }
+
+    .deploy-left .deploy-card { min-height: 100%; }
+
+    .deploy-card {
+      position: relative;
+      background: var(--bg-green);
+      border-radius: 14px;
+      padding: 24px;
+      border: 1px solid #E1EFDF;
+      overflow: hidden;
+      transition: transform .28s ease, box-shadow .28s ease;
+    }
+
+    .deploy-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow);
+    }
+
+    .corner {
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 64px;
+      height: 64px;
+      background: linear-gradient(135deg, transparent 50%, #BFEFB9 50%);
+    }
+
+    .deploy-arrow {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      width: 24px;
+      height: 24px;
+      transition: transform .3s ease;
+    }
+
+    .deploy-card:hover .deploy-arrow { transform: rotate(-45deg); }
+
+    .testimonial {
+      background: var(--bg-green);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .testimonial-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: end;
+      margin-bottom: 24px;
+      gap: 16px;
+    }
+
+    .slider-controls { display: flex; gap: 10px; }
+
+    .round-btn {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      border: 0;
+      background: var(--ink-dark);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+    }
+
+    .round-btn svg { width: 18px; height: 18px; stroke: var(--accent-bright); fill: none; stroke-width: 2.2; }
+
+    .testimonial-shell {
+      position: relative;
+    }
+
+    .testimonial-mask {
+      overflow: hidden;
+    }
+
+    .testimonial-track {
+      display: flex;
+      transition: transform .42s ease;
+    }
+
+    .test-card {
+      flex: 0 0 calc(100% / 3);
+      padding: 0 10px;
+    }
+
+    .test-inner {
+      height: 100%;
+      border-radius: 20px;
+      background: var(--white);
+      border: 1px solid #EAEFDE;
+      padding: 22px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .test-company { font-weight: 700; font-size: 18px; }
+    .test-quote { color: var(--gray-500); line-height: 1.6; flex: 1; }
+
+    .test-person {
+      border-top: 1px solid #E9E9E9;
+      padding-top: 14px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .avatar { width: 42px; height: 42px; border-radius: 50%; overflow: hidden; }
+
+    .fade-edge {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      width: 80px;
+      pointer-events: none;
+      z-index: 3;
+    }
+
+    .fade-left { left: 0; background: linear-gradient(to right, var(--bg-green), transparent); }
+    .fade-right { right: 0; background: linear-gradient(to left, var(--bg-green), transparent); }
+
+    .logo-strip {
+      margin-top: 34px;
+      overflow: hidden;
+      position: relative;
+      border-top: 1px solid #DDEED8;
+      border-bottom: 1px solid #DDEED8;
+      padding: 16px 0;
+    }
+
+    .logo-track {
+      width: max-content;
+      display: flex;
+      gap: 14px;
+      animation: marquee 18s linear infinite;
+    }
+
+    .logo-strip:hover .logo-track { animation-play-state: paused; }
+
+    .logo-item {
+      border: 1px solid #D9E8D5;
+      border-radius: 999px;
+      padding: 9px 16px;
+      background: var(--white);
+      white-space: nowrap;
+      font-weight: 600;
+      color: #34503A;
+    }
+
+    @keyframes marquee {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+
+    footer {
+      background: var(--white);
+      border-top: 1px solid #ECECEC;
+      padding: 56px 0 26px;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr 0.8fr;
+      gap: 24px;
+    }
+
+    .footer-title { font-weight: 700; margin-bottom: 12px; }
+    .footer-list { color: var(--gray-500); display: grid; gap: 8px; }
+
+    .social {
+      display: flex;
+      gap: 10px;
+      margin-top: 8px;
+    }
+
+    .social a {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      border: 1px solid #D9DFD7;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #2A4A35;
+    }
+
+    .copyright {
+      margin-top: 28px;
+      padding-top: 18px;
+      border-top: 1px solid #EEEEEE;
+      color: var(--gray-400);
+      font-size: 14px;
+    }
+
+    .reveal-title,
+    .reveal-card,
+    .reveal-feature,
+    .reveal-deploy,
+    .reveal-flow,
+    .reveal-service-section {
+      opacity: 0;
+      transition: opacity .65s ease, transform .65s ease;
+      will-change: transform, opacity;
+    }
+
+    .reveal-title { transform: translateY(31px); }
+    .reveal-card { transform: translateY(40px); }
+    .reveal-feature { transform: translateX(-60px); }
+    .reveal-deploy { transform: translateX(142px); }
+    .reveal-flow { transform: none; }
+    .reveal-service-section { transform: scale(.9); }
+
+    .in-view {
+      opacity: 1 !important;
+      transform: translate(0,0) scale(1) !important;
+    }
+
+    @media (max-width: 1024px) {
+      .nav-links { display: none; }
+      .section-space { padding: 72px 0; }
+      .service-grid { grid-template-columns: repeat(2, 1fr); }
+      .tech-grid { grid-template-columns: 1fr; }
+      .tech-visual { position: relative; top: 0; min-height: 360px; }
+      .deploy-grid { grid-template-columns: 1fr; }
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+      .test-card { flex: 0 0 calc(100% / 2); }
+    }
+
+    @media (max-width: 768px) {
+      .container { width: min(1180px, calc(100% - 22px)); }
+      .hero { padding-top: 126px; }
+      .section-title { font-size: 32px; }
+      .service-grid { grid-template-columns: 1fr; }
+      .service-card { height: auto; min-height: 340px; }
+      .testimonial-top { align-items: center; }
+      .test-card { flex: 0 0 100%; padding: 0 6px; }
+      .footer-grid { grid-template-columns: 1fr; }
+      .news-bar { border-radius: 22px; padding: 12px 16px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="nav-wrap">
+    <div class="container">
+      <nav class="navbar">
+        <a class="logo" href="#home">远大港湾</a>
+        <div class="nav-links">
+          <a href="#home">首页</a>
+          <a href="#services">服务</a>
+          <a href="#about">关于我们</a>
+        </div>
+        <button class="cta-btn" type="button">
+          <span class="fill"></span>
+          <span>联系我们</span>
+          <span class="arrow-wrap">
+            <svg viewBox="0 0 24 24"><path d="M5 12h14"/><path d="M13 5l7 7-7 7"/></svg>
+          </span>
+        </button>
       </nav>
-    </header>
+    </div>
+  </div>
 
-    <main>
-      <section class="hero container reveal" id="home">
-        <p class="eyebrow">Trusted by modern product teams</p>
-        <h1>
-          Building the Future of
-          <span class="gradient-text">Intelligent Web Experiences</span>
+  <main>
+    <section id="home" class="hero">
+      <div class="container">
+        <h1 class="serif">
+          <span class="line-anim">赋能国企</span><br />
+          <span class="line-anim olive">网络隧道</span><br />
+          <span class="line-anim">安全基建</span>
         </h1>
-        <p class="subtitle">Next-generation tools for modern web development</p>
-        <div class="hero-actions">
-          <a href="#contact" class="btn btn-primary">Try it now</a>
-          <a href="#how" class="btn btn-ghost">See how it works</a>
-        </div>
-      </section>
+        <p class="hero-sub">★ 为中国国有企业提供专业网络隧道与安全基础设施服务</p>
+        <button class="cta-btn" type="button">
+          <span class="fill"></span>
+          <span>了解更多</span>
+          <span class="arrow-wrap">
+            <svg viewBox="0 0 24 24"><path d="M5 12h14"/><path d="M13 5l7 7-7 7"/></svg>
+          </span>
+        </button>
 
-      <section class="ticker-wrap" aria-label="Latest announcements">
-        <div class="ticker-track">
-          <p>
-            🚀 CloneWeb Studio 2.0 is live · ⚡ 40% faster build pipeline · 🔐 New enterprise-grade security controls · 🌍 Edge deployment now available in 32 regions ·
-          </p>
-          <p>
-            🚀 CloneWeb Studio 2.0 is live · ⚡ 40% faster build pipeline · 🔐 New enterprise-grade security controls · 🌍 Edge deployment now available in 32 regions ·
-          </p>
+        <div class="news-bar" aria-label="滚动新闻">
+          <div class="news-star">★</div>
+          <div id="newsText" class="news-text">远大港湾成功部署国企跨区域安全隧道项目</div>
+          <div class="news-dots" id="newsDots"></div>
         </div>
-      </section>
-
-      <section class="section container reveal" id="how">
-        <div class="section-head">
-          <p class="eyebrow">How it works</p>
-          <h2>Smart Architecture Powers Every Release</h2>
-        </div>
-        <div class="flow-grid">
-          <article class="flow-step card">
-            <h3>Capture</h3>
-            <p>Ingest your design systems, product docs, and codebase context in real time.</p>
-          </article>
-          <article class="flow-step card">
-            <h3>Orchestrate</h3>
-            <p>Compose workflows with reusable agents for testing, optimization, and quality control.</p>
-          </article>
-          <article class="flow-step card">
-            <h3>Ship</h3>
-            <p>Deploy production-ready experiences with observability and rollout confidence.</p>
-          </article>
-        </div>
-      </section>
-
-      <section class="section alt container reveal" id="about">
-        <div class="section-head">
-          <p class="eyebrow">Model spectrum</p>
-          <h2>Built for every stage of product maturity</h2>
-        </div>
-        <div class="grid-3">
-          <article class="card">
-            <h3>Starter Suite</h3>
-            <p>Fast onboarding templates for teams validating product-market fit.</p>
-          </article>
-          <article class="card">
-            <h3>Growth Engine</h3>
-            <p>High-performance components and analytics for scaling products.</p>
-          </article>
-          <article class="card">
-            <h3>Enterprise Core</h3>
-            <p>Private environments, governance controls, and custom integrations.</p>
-          </article>
-        </div>
-      </section>
-
-      <section class="section container reveal" id="features">
-        <div class="section-head">
-          <p class="eyebrow">Features</p>
-          <h2>Designed for speed, quality, and reliability</h2>
-        </div>
-        <div class="grid-3 features-grid">
-          <article class="card"><h3>High Accuracy</h3><p>Deliver consistently precise outputs with adaptive logic layers.</p></article>
-          <article class="card"><h3>Low Complexity</h3><p>Intuitive tools reduce implementation overhead across teams.</p></article>
-          <article class="card"><h3>Low Latency</h3><p>Global edge runtime ensures fast interactions at scale.</p></article>
-          <article class="card"><h3>Cost Efficient</h3><p>Usage-aware architecture optimizes resource consumption.</p></article>
-          <article class="card"><h3>Long-context Aware</h3><p>Maintain deep project understanding across long workflows.</p></article>
-          <article class="card"><h3>Modular by Design</h3><p>Compose and extend capabilities without vendor lock-in.</p></article>
-        </div>
-      </section>
-
-      <section class="section alt container reveal" id="deploy">
-        <div class="section-head">
-          <p class="eyebrow">Deploy</p>
-          <h2>Run CloneWeb your way</h2>
-        </div>
-        <div class="deploy-options">
-          <article class="card deploy-card">
-            <h3>API</h3>
-            <p>Integrate quickly with robust SDKs and clear API contracts.</p>
-          </article>
-          <article class="card deploy-card">
-            <h3>Cloud</h3>
-            <p>Launch managed environments with autoscaling and monitoring built in.</p>
-          </article>
-          <article class="card deploy-card">
-            <h3>Custom</h3>
-            <p>Deploy in your private infrastructure with tailored compliance controls.</p>
-          </article>
-        </div>
-      </section>
-
-      <section class="section container reveal" id="testimonials">
-        <div class="section-head">
-          <p class="eyebrow">Testimonials</p>
-          <h2>Teams shipping better products with CloneWeb</h2>
-        </div>
-        <div class="grid-3">
-          <article class="card quote-card">
-            <div class="avatar">AL</div>
-            <p>“CloneWeb helped us cut release cycles from weeks to days while improving frontend quality.”</p>
-            <span>Aria Liu · VP Engineering</span>
-          </article>
-          <article class="card quote-card">
-            <div class="avatar">JM</div>
-            <p>“The developer experience is outstanding. Our team adopted it in a single sprint.”</p>
-            <span>Jonas Meyer · Head of Product</span>
-          </article>
-          <article class="card quote-card">
-            <div class="avatar">RN</div>
-            <p>“Reliable, fast, and elegant. CloneWeb became a core part of our platform stack.”</p>
-            <span>Rina Nakamura · CTO</span>
-          </article>
-        </div>
-      </section>
-    </main>
-
-    <footer class="site-footer" id="contact">
-      <div class="container footer-inner">
-        <div>
-          <a href="#home" class="logo footer-logo"><span class="logo-dot"></span>CloneWeb</a>
-          <p>Building premium web infrastructure for ambitious teams.</p>
-        </div>
-        <ul class="footer-links">
-          <li><a href="#home">Home</a></li>
-          <li><a href="#features">Features</a></li>
-          <li><a href="#about">About</a></li>
-          <li><a href="#contact">Contact</a></li>
-        </ul>
       </div>
-      <p class="copyright">© 2026 CloneWeb. All rights reserved.</p>
-    </footer>
+    </section>
 
-    <script src="./script.js"></script>
-  </body>
+    <section class="section-space" id="about">
+      <div class="container">
+        <h2 class="section-title serif reveal-title">端到端安全隧道如何保障国企网络通信</h2>
+        <div class="flow-wrap reveal-flow">
+          <div class="flow-row">
+            <div class="flow-item">
+              <svg class="flow-icon" viewBox="0 0 24 24" fill="none" stroke="#29553A" stroke-width="1.8"><rect x="4" y="6" width="16" height="12" rx="2"/><path d="M8 10h8M8 14h5"/></svg>
+              企业数据
+            </div>
+            <div class="flow-item highlight">
+              <svg class="flow-icon" viewBox="0 0 24 24" fill="none" stroke="#29553A" stroke-width="1.8"><path d="M12 3l8 4v5c0 5-3.4 8-8 9-4.6-1-8-4-8-9V7l8-4z"/><path d="M9 12l2 2 4-4"/></svg>
+              加密网关
+            </div>
+            <div class="flow-item">
+              <svg class="flow-icon" viewBox="0 0 24 24" fill="none" stroke="#29553A" stroke-width="1.8"><path d="M3 12h18"/><path d="M7 7l-4 5 4 5M17 7l4 5-4 5"/></svg>
+              安全隧道
+            </div>
+            <div class="flow-item highlight">
+              <svg class="flow-icon" viewBox="0 0 24 24" fill="none" stroke="#29553A" stroke-width="1.8"><circle cx="12" cy="12" r="8"/><path d="M12 8v4l3 2"/></svg>
+              流量审计
+            </div>
+            <div class="flow-item">
+              <svg class="flow-icon" viewBox="0 0 24 24" fill="none" stroke="#29553A" stroke-width="1.8"><rect x="3" y="4" width="18" height="14" rx="2"/><path d="M8 20h8"/></svg>
+              目标节点
+            </div>
+            <div class="flow-item">
+              <svg class="flow-icon" viewBox="0 0 24 24" fill="none" stroke="#29553A" stroke-width="1.8"><rect x="5" y="10" width="14" height="10" rx="2"/><path d="M8 10V7a4 4 0 1 1 8 0v3"/></svg>
+              解密还原
+            </div>
+            <div class="flow-item">
+              <svg class="flow-icon" viewBox="0 0 24 24" fill="none" stroke="#29553A" stroke-width="1.8"><path d="M4 13l5 5L20 7"/></svg>
+              安全到达 · 低延迟高可用
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="services" class="section-space services reveal-service-section">
+      <div class="container">
+        <h2 class="section-title serif reveal-title">满足不同规模国企的网络需求</h2>
+        <div class="service-grid">
+          <article class="service-card reveal-card" style="transition-delay:0ms">
+            <div class="service-content">
+              <svg width="54" height="54" viewBox="0 0 24 24" fill="none" stroke="#2E5B3D" stroke-width="1.7"><path d="M4 7h16v10H4z"/><path d="M4 11h16M8 15h3"/></svg>
+              <h3>标准隧道方案</h3>
+              <p class="feature-desc">开箱即用的加密隧道，适合中小型国企日常办公需求。</p>
+            </div>
+            <div class="service-bottom">
+              <button class="cta-btn" type="button"><span class="fill"></span><span>立即部署</span><span class="arrow-wrap"><svg viewBox="0 0 24 24"><path d="M5 12h14"/><path d="M13 5l7 7-7 7"/></svg></span></button>
+            </div>
+          </article>
+
+          <article class="service-card reveal-card" style="transition-delay:100ms">
+            <div class="service-content">
+              <svg width="54" height="54" viewBox="0 0 24 24" fill="none" stroke="#2E5B3D" stroke-width="1.7"><path d="M3 12h18"/><path d="M12 3v18"/><circle cx="12" cy="12" r="3"/></svg>
+              <h3>行业定制方案</h3>
+              <p class="feature-desc">针对金融、能源、交通等行业的专属网络隧道优化方案。</p>
+            </div>
+            <div class="service-bottom">
+              <button class="cta-btn" type="button"><span class="fill"></span><span>立即部署</span><span class="arrow-wrap"><svg viewBox="0 0 24 24"><path d="M5 12h14"/><path d="M13 5l7 7-7 7"/></svg></span></button>
+            </div>
+          </article>
+
+          <article class="service-card reveal-card" style="transition-delay:200ms">
+            <div class="service-content">
+              <svg width="54" height="54" viewBox="0 0 24 24" fill="none" stroke="#2E5B3D" stroke-width="1.7"><path d="M5 4h14v16H5z"/><path d="M8 8h8M8 12h8M8 16h5"/></svg>
+              <h3>企业专属方案</h3>
+              <p class="feature-desc">为大型央企量身定制的全网络基础设施解决方案。</p>
+            </div>
+            <div class="service-bottom">
+              <button class="cta-btn" type="button"><span class="fill"></span><span>联系销售</span><span class="arrow-wrap"><svg viewBox="0 0 24 24"><path d="M5 12h14"/><path d="M13 5l7 7-7 7"/></svg></span></button>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-space">
+      <div class="container tech-grid">
+        <div class="tech-visual">
+          <svg viewBox="0 0 420 340" fill="none">
+            <rect x="40" y="40" width="340" height="260" rx="28" stroke="#A8D7A1" stroke-width="2"/>
+            <circle cx="210" cy="170" r="74" fill="#DDF2D8"/>
+            <path d="M140 170h140M210 100v140" stroke="#7BA573" stroke-width="2"/>
+            <circle cx="210" cy="170" r="34" fill="#98FB98" opacity=".35"/>
+            <path d="M206 152l-24 16 24 16M214 152l24 16-24 16" stroke="#2D5F3F" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+
+        <div>
+          <h2 class="section-title serif reveal-title">以前沿技术驱动安全网络工程</h2>
+          <div class="feature-list">
+            <div class="feature-item reveal-feature">
+              <div class="feature-icon"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="#29553A" stroke-width="2"><path d="M12 3l7 4v5c0 4-2.6 6.7-7 8-4.4-1.3-7-4-7-8V7z"/></svg></div>
+              <div><div class="feature-title">军工级加密</div><div class="feature-desc">采用国密 SM2/SM4 + AES-256 双重加密标准</div></div>
+            </div>
+            <div class="feature-item reveal-feature">
+              <div class="feature-icon"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="#29553A" stroke-width="2"><path d="M13 2L6 13h5l-1 9 8-12h-5z"/></svg></div>
+              <div><div class="feature-title">超低延迟</div><div class="feature-desc">全球骨干网直连，端到端延迟低于 20ms</div></div>
+            </div>
+            <div class="feature-item reveal-feature">
+              <div class="feature-icon"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="#29553A" stroke-width="2"><circle cx="12" cy="8" r="3"/><path d="M4 20a8 8 0 0 1 16 0"/></svg></div>
+              <div><div class="feature-title">零信任架构</div><div class="feature-desc">每一次访问都经过身份验证和权限校验</div></div>
+            </div>
+            <div class="feature-item reveal-feature">
+              <div class="feature-icon"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="#29553A" stroke-width="2"><path d="M3 7h18M6 3v4m12-4v4M5 11h14v10H5z"/></svg></div>
+              <div><div class="feature-title">成本优化</div><div class="feature-desc">比传统 MPLS 专线降低 60% 的网络成本</div></div>
+            </div>
+            <div class="feature-item reveal-feature">
+              <div class="feature-icon"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="#29553A" stroke-width="2"><path d="M4 18V6m5 12V10m5 8V4m5 14v-6"/></svg></div>
+              <div><div class="feature-title">全链路监控</div><div class="feature-desc">实时流量审计和安全态势感知</div></div>
+            </div>
+            <div class="feature-item reveal-feature">
+              <div class="feature-icon"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="#29553A" stroke-width="2"><rect x="3" y="7" width="18" height="10" rx="2"/><path d="M8 21h8"/></svg></div>
+              <div><div class="feature-title">即插即用</div><div class="feature-desc">兼容主流云平台和现有网络基础设施</div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-space">
+      <div class="container">
+        <h2 class="section-title serif reveal-title">灵活部署 全域覆盖</h2>
+        <div class="deploy-grid">
+          <div class="deploy-left">
+            <article class="deploy-card reveal-deploy">
+              <div class="corner"></div>
+              <svg class="deploy-arrow" viewBox="0 0 24 24" fill="none" stroke="#2E5B3D" stroke-width="2"><path d="M7 17L17 7M9 7h8v8"/></svg>
+              <h3>公有云部署</h3>
+              <p class="feature-desc">支持阿里云、华为云、腾讯云一键部署，按需付费。</p>
+            </article>
+          </div>
+          <div class="deploy-right">
+            <article class="deploy-card reveal-deploy" style="transition-delay:120ms">
+              <div class="corner"></div>
+              <svg class="deploy-arrow" viewBox="0 0 24 24" fill="none" stroke="#2E5B3D" stroke-width="2"><path d="M7 17L17 7M9 7h8v8"/></svg>
+              <h3>混合云方案</h3>
+              <p class="feature-desc">公有云与私有云无缝互联，满足等保合规要求。</p>
+            </article>
+            <article class="deploy-card reveal-deploy" style="transition-delay:220ms">
+              <div class="corner"></div>
+              <svg class="deploy-arrow" viewBox="0 0 24 24" fill="none" stroke="#2E5B3D" stroke-width="2"><path d="M7 17L17 7M9 7h8v8"/></svg>
+              <h3>私有化部署</h3>
+              <p class="feature-desc">全套设备入驻企业机房，数据零出境。</p>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-space testimonial">
+      <div class="container">
+        <div class="testimonial-top">
+          <h2 class="section-title serif reveal-title" style="margin:0;">深受行业领军企业信赖</h2>
+          <div class="slider-controls">
+            <button id="prevTest" class="round-btn" type="button" aria-label="上一条">
+              <svg viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></svg>
+            </button>
+            <button id="nextTest" class="round-btn" type="button" aria-label="下一条">
+              <svg viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></svg>
+            </button>
+          </div>
+        </div>
+
+        <div class="testimonial-shell">
+          <div class="fade-edge fade-left"></div>
+          <div class="fade-edge fade-right"></div>
+          <div class="testimonial-mask">
+            <div id="testTrack" class="testimonial-track">
+              <article class="test-card reveal-card">
+                <div class="test-inner">
+                  <div class="test-company">中国石油</div>
+                  <div class="test-quote">“远大港湾的跨区域安全隧道方案完美解决了我们分布在全国各地的办公网络互联需求，部署效率和安全性远超预期。”</div>
+                  <div class="test-person">
+                    <div class="avatar">
+                      <svg viewBox="0 0 42 42"><rect width="42" height="42" fill="#DDEFD6"/><circle cx="21" cy="16" r="8" fill="#93C693"/><rect x="11" y="26" width="20" height="12" rx="6" fill="#7FAF80"/></svg>
+                    </div>
+                    <div>
+                      <div style="font-weight:600;">张伟</div>
+                      <div style="font-size:13px;color:#7A7A7A;">信息技术部总监</div>
+                    </div>
+                  </div>
+                </div>
+              </article>
+              <article class="test-card reveal-card" style="transition-delay:100ms">
+                <div class="test-inner">
+                  <div class="test-company">国家电网</div>
+                  <div class="test-quote">“零信任架构方案帮助我们实现了电力调度网络的全面安全升级，同时大幅降低了运维成本。”</div>
+                  <div class="test-person">
+                    <div class="avatar">
+                      <svg viewBox="0 0 42 42"><rect width="42" height="42" fill="#E0F2D9"/><circle cx="21" cy="16" r="8" fill="#83B78E"/><rect x="11" y="26" width="20" height="12" rx="6" fill="#6AA180"/></svg>
+                    </div>
+                    <div>
+                      <div style="font-weight:600;">李明</div>
+                      <div style="font-size:13px;color:#7A7A7A;">网络安全中心主任</div>
+                    </div>
+                  </div>
+                </div>
+              </article>
+              <article class="test-card reveal-card" style="transition-delay:200ms">
+                <div class="test-inner">
+                  <div class="test-company">中国银行</div>
+                  <div class="test-quote">“在金融行业合规要求极为严格的背景下，远大港湾的国密加密隧道方案是我们见过的最佳解决方案。”</div>
+                  <div class="test-person">
+                    <div class="avatar">
+                      <svg viewBox="0 0 42 42"><rect width="42" height="42" fill="#E8F5E3"/><circle cx="21" cy="16" r="8" fill="#90C88A"/><rect x="11" y="26" width="20" height="12" rx="6" fill="#7BA972"/></svg>
+                    </div>
+                    <div>
+                      <div style="font-weight:600;">王芳</div>
+                      <div style="font-size:13px;color:#7A7A7A;">科技运营部副总经理</div>
+                    </div>
+                  </div>
+                </div>
+              </article>
+            </div>
+          </div>
+        </div>
+
+        <div class="logo-strip">
+          <div class="logo-track">
+            <span class="logo-item">阿里云</span>
+            <span class="logo-item">华为云</span>
+            <span class="logo-item">腾讯云</span>
+            <span class="logo-item">中国移动</span>
+            <span class="logo-item">中国电信</span>
+            <span class="logo-item">中国联通</span>
+            <span class="logo-item">浪潮</span>
+            <span class="logo-item">紫光</span>
+            <span class="logo-item">阿里云</span>
+            <span class="logo-item">华为云</span>
+            <span class="logo-item">腾讯云</span>
+            <span class="logo-item">中国移动</span>
+            <span class="logo-item">中国电信</span>
+            <span class="logo-item">中国联通</span>
+            <span class="logo-item">浪潮</span>
+            <span class="logo-item">紫光</span>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div class="logo" style="margin-bottom:10px;">远大港湾</div>
+          <div class="feature-desc">上海市浦东新区科技大道 88 号 A 座 16F</div>
+          <div class="feature-desc">400-800-2026</div>
+          <div class="feature-desc">contact@yg-harbor.com</div>
+        </div>
+
+        <div>
+          <div class="footer-title">快速链接</div>
+          <div class="footer-list">
+            <a href="#services">服务介绍</a>
+            <a href="#">技术文档</a>
+            <a href="#">安全白皮书</a>
+            <a href="#">客户案例</a>
+          </div>
+          <div class="footer-title" style="margin-top:16px;">合规认证</div>
+          <div class="footer-list">
+            <span>等保三级</span>
+            <span>ISO 27001</span>
+            <span>国密认证</span>
+            <span>GDPR</span>
+          </div>
+        </div>
+
+        <div>
+          <div class="footer-title">关注我们</div>
+          <div class="social">
+            <a href="#" aria-label="LinkedIn">
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+            </a>
+            <a href="#" aria-label="微信">
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="9" cy="10" r="5"/><circle cx="16" cy="13" r="4"/><path d="M6 15l-1 3 3-2M15 17l1 2 2-1"/></svg>
+            </a>
+            <a href="#" aria-label="邮箱">
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 7 9-7"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="copyright">© 2026 远大港湾网络基建 版权所有</div>
+    </div>
+  </footer>
+
+  <script>
+    const newsItems = [
+      '远大港湾成功部署国企跨区域安全隧道项目',
+      '零信任网络架构方案正式上线',
+      '远大港湾通过等保三级认证',
+      '跨境专线隧道方案获多家央企采用',
+      'SD-WAN 智能组网方案全面升级'
+    ];
+
+    const newsText = document.getElementById('newsText');
+    const dotsWrap = document.getElementById('newsDots');
+    let newsIndex = 0;
+
+    newsItems.forEach((_, idx) => {
+      const dot = document.createElement('button');
+      dot.className = 'news-dot' + (idx === 0 ? ' active' : '');
+      dot.type = 'button';
+      dot.setAttribute('aria-label', `新闻 ${idx + 1}`);
+      dot.addEventListener('click', () => setNews(idx));
+      dotsWrap.appendChild(dot);
+    });
+
+    function setNews(i) {
+      newsIndex = i;
+      newsText.style.opacity = '0';
+      newsText.style.transform = 'translateY(7px)';
+      setTimeout(() => {
+        newsText.textContent = newsItems[newsIndex];
+        newsText.style.opacity = '1';
+        newsText.style.transform = 'translateY(0)';
+      }, 180);
+      document.querySelectorAll('.news-dot').forEach((d, idx) => d.classList.toggle('active', idx === newsIndex));
+    }
+
+    setInterval(() => setNews((newsIndex + 1) % newsItems.length), 3500);
+
+    const testTrack = document.getElementById('testTrack');
+    const prevTest = document.getElementById('prevTest');
+    const nextTest = document.getElementById('nextTest');
+    const cardCount = testTrack.children.length;
+    let testIndex = 0;
+
+    function visibleCards() {
+      if (window.innerWidth <= 768) return 1;
+      if (window.innerWidth <= 1024) return 2;
+      return 3;
+    }
+
+    function updateTestimonials() {
+      const vis = visibleCards();
+      const max = Math.max(0, cardCount - vis);
+      if (testIndex > max) testIndex = max;
+      testTrack.style.transform = `translateX(-${testIndex * (100 / vis)}%)`;
+    }
+
+    prevTest.addEventListener('click', () => {
+      if (testIndex > 0) testIndex -= 1;
+      updateTestimonials();
+    });
+
+    nextTest.addEventListener('click', () => {
+      const max = Math.max(0, cardCount - visibleCards());
+      if (testIndex < max) testIndex += 1;
+      updateTestimonials();
+    });
+
+    window.addEventListener('resize', updateTestimonials);
+    updateTestimonials();
+
+    const revealEls = document.querySelectorAll('.reveal-title, .reveal-card, .reveal-feature, .reveal-deploy, .reveal-flow, .reveal-service-section');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('in-view');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.18, rootMargin: '0px 0px -40px 0px' });
+
+    revealEls.forEach((el) => observer.observe(el));
+  </script>
+</body>
 </html>
