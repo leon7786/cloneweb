@@ -52,40 +52,55 @@
 
     .nav-wrap {
       position: fixed;
-      top: 18px;
+      top: 0;
       left: 0;
       right: 0;
       z-index: 50;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 20px 24px;
+      transition: padding 0.5s ease-in-out;
     }
 
     .navbar {
       height: 64px;
       border-radius: 999px;
       background: var(--white);
-      box-shadow: var(--shadow);
-      border: 1px solid rgba(0,0,0,0.04);
+      box-shadow: 0 2px 20px rgba(0, 33, 37, 0.08), 0 0 0 1px rgba(0,0,0,0.03);
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 0 12px 0 22px;
+      padding: 0 6px 0 24px;
       gap: 12px;
+      max-width: 1330px;
+      width: 100%;
     }
 
     .logo {
+      font-family: 'PT Serif', Georgia, serif;
       font-weight: 700;
-      letter-spacing: 0.5px;
-      font-size: 20px;
+      letter-spacing: 1px;
+      font-size: 22px;
+      color: var(--ink-dark);
+      white-space: nowrap;
     }
 
     .nav-links {
       display: flex;
       align-items: center;
-      gap: 28px;
-      color: var(--gray-500);
-      font-weight: 500;
+      gap: 32px;
+      font-size: 16px;
+      font-weight: 400;
     }
 
-    .nav-links a:hover { color: var(--gray-900); }
+    .nav-links a {
+      opacity: 1;
+      transition: opacity 0.2s ease;
+    }
+
+    .nav-links:hover a { opacity: 0.55; }
+    .nav-links a:hover { opacity: 1 !important; }
 
     .cta-btn {
       position: relative;
@@ -95,69 +110,108 @@
       background: var(--ink-dark);
       color: var(--text-btn);
       height: 46px;
-      padding: 0 6px 0 18px;
+      padding: 0 6px 0 24px;
       display: inline-flex;
       align-items: center;
-      gap: 12px;
-      font-weight: 600;
+      gap: 20px;
+      font-family: 'Schibsted Grotesk', sans-serif;
+      font-size: 16px;
+      font-weight: 500;
       cursor: pointer;
       transition: transform .25s ease;
       z-index: 1;
+    }
+
+    .cta-btn .btn-text {
+      position: relative;
+      z-index: 10;
+      color: var(--text-btn);
     }
 
     .cta-btn .fill {
       position: absolute;
       inset: 0;
       background: var(--ink-deeper);
-      transform: translateX(100%);
-      transition: transform .36s ease;
-      z-index: -1;
+      border-radius: 999px;
+      transform: translateX(0);
+      transition: transform .5s ease;
+      z-index: 0;
     }
 
+    .cta-btn:hover .fill { transform: translateX(-100%); }
+
     .cta-btn .arrow-wrap {
-      width: 34px;
-      height: 34px;
+      width: 36px;
+      height: 36px;
       border-radius: 50%;
       background: var(--accent-bright);
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      transition: transform .3s ease;
       flex-shrink: 0;
+      position: relative;
+      z-index: 10;
     }
 
-    .cta-btn svg {
-      width: 16px;
-      height: 16px;
-      stroke: var(--icon-dark);
-      stroke-width: 2.2;
-      fill: none;
+    .cta-btn .arrow-wrap svg {
+      width: 14px;
+      height: 14px;
+      fill: var(--icon-dark);
+      stroke: none;
       transition: transform .3s ease;
     }
 
-    .cta-btn:hover .fill { transform: translateX(0); }
     .cta-btn:hover .arrow-wrap svg { transform: rotate(-45deg); }
 
     .hero {
-      padding: 150px 0 56px;
+      padding: 140px 0 60px;
       background: var(--bg-green);
       overflow: hidden;
+      position: relative;
+    }
+
+    .hero-inner {
+      padding: 60px 24px 80px;
+      position: relative;
+      z-index: 1;
     }
 
     .hero h1 {
-      margin: 0;
+      margin: 0 0 16px;
       font-size: clamp(38px, 7vw, 64px);
-      line-height: 1.1;
-      letter-spacing: -1px;
+      line-height: 1.15;
+      letter-spacing: -0.5px;
+      text-align: center;
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
+      word-break: keep-all;
     }
 
     .hero .olive { color: var(--title-olive); }
 
     .hero-sub {
-      margin: 22px 0 30px;
-      color: var(--gray-500);
-      font-size: clamp(16px, 2.5vw, 20px);
+      margin: 16px auto 32px;
+      color: var(--gray-900);
+      font-size: clamp(16px, 2.5vw, 22px);
       line-height: 1.55;
+      text-align: center;
+      font-weight: 400;
+    }
+
+    .hero-sub .star-icon {
+      display: inline-block;
+      width: 20px;
+      height: 20px;
+      vertical-align: -2px;
+      margin-right: 6px;
+    }
+
+    .hero-cta {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 0;
     }
 
     .line-anim {
@@ -167,46 +221,74 @@
       animation: lineFade .7s forwards;
     }
 
-    .line-anim:nth-child(1) { animation-delay: .08s; }
-    .line-anim:nth-child(2) { animation-delay: .24s; }
+    .line-anim:nth-child(1) { animation-delay: .1s; }
+    .line-anim:nth-child(2) { animation-delay: .25s; }
     .line-anim:nth-child(3) { animation-delay: .4s; }
+    .line-anim:nth-child(4) { animation-delay: .55s; }
+    .line-anim:nth-child(5) { animation-delay: .7s; }
 
     @keyframes lineFade {
       to { opacity: 1; transform: translateY(0); }
     }
 
+    .hero-sub-anim {
+      opacity: 0;
+      transform: translateY(16px);
+      animation: lineFade .7s .6s forwards;
+    }
+
+    .hero-cta-anim {
+      opacity: 0;
+      transform: translateY(24px);
+      animation: lineFade .7s .75s forwards;
+    }
+
+    .news-section {
+      max-width: 700px;
+      margin: 40px auto 0;
+      opacity: 0;
+      transform: translateY(24px);
+      animation: lineFade .7s .9s forwards;
+    }
+
     .news-bar {
-      margin-top: 38px;
       background: var(--white);
       border-radius: 999px;
-      border: 1px solid var(--line-green);
       min-height: 62px;
       display: flex;
       align-items: center;
-      padding: 10px 22px;
+      padding: 14px 24px;
       gap: 14px;
+      box-shadow: 0 1px 8px rgba(0,33,37,0.04);
     }
 
-    .news-star { color: var(--title-olive); font-size: 18px; }
+    .news-star {
+      flex-shrink: 0;
+      width: 24px;
+      height: 24px;
+    }
 
     .news-text {
       flex: 1;
       min-height: 24px;
       display: flex;
       align-items: center;
-      font-weight: 500;
+      font-weight: 400;
+      font-size: 15px;
       transition: opacity .35s ease, transform .35s ease;
     }
 
-    .news-dots { display: flex; gap: 8px; }
+    .news-dots { display: flex; gap: 8px; flex-shrink: 0; }
 
     .news-dot {
       width: 8px;
       height: 8px;
       border-radius: 50%;
       background: #C9D7C5;
+      border: none;
       cursor: pointer;
       transition: transform .2s ease, background .2s ease;
+      padding: 0;
     }
 
     .news-dot.active {
@@ -597,7 +679,11 @@
 
     @media (max-width: 768px) {
       .container { width: min(1180px, calc(100% - 22px)); }
-      .hero { padding-top: 126px; }
+      .nav-wrap { padding: 12px 16px; }
+      .navbar { padding: 0 6px 0 16px; height: 56px; }
+      .nav-links { display: none; }
+      .hero { padding-top: 100px; }
+      .hero-inner { padding: 40px 8px 60px; }
       .section-title { font-size: 32px; }
       .service-grid { grid-template-columns: 1fr; }
       .service-card { height: auto; min-height: 340px; }
@@ -610,46 +696,50 @@
 </head>
 <body>
   <div class="nav-wrap">
-    <div class="container">
-      <nav class="navbar">
-        <a class="logo" href="#home">远大港湾</a>
-        <div class="nav-links">
-          <a href="#home">首页</a>
-          <a href="#services">服务</a>
-          <a href="#about">关于我们</a>
-        </div>
-        <button class="cta-btn" type="button">
-          <span class="fill"></span>
-          <span>联系我们</span>
-          <span class="arrow-wrap">
-            <svg viewBox="0 0 24 24"><path d="M5 12h14"/><path d="M13 5l7 7-7 7"/></svg>
-          </span>
-        </button>
-      </nav>
-    </div>
+    <nav class="navbar">
+      <a class="logo" href="#home">远大港湾</a>
+      <div class="nav-links">
+        <a href="#home">首页</a>
+        <a href="#services">服务</a>
+        <a href="#about">关于我们</a>
+      </div>
+      <button class="cta-btn" type="button">
+        <span class="fill"></span>
+        <span class="btn-text">联系我们</span>
+        <span class="arrow-wrap">
+          <svg viewBox="0 0 256 256"><path d="M221.66,133.66l-72,72a8,8,0,0,1-11.32-11.32L196.69,136H40a8,8,0,0,1,0-16H196.69L138.34,61.66a8,8,0,0,1,11.32-11.32l72,72A8,8,0,0,1,221.66,133.66Z"></path></svg>
+        </span>
+      </button>
+    </nav>
   </div>
 
   <main>
     <section id="home" class="hero">
-      <div class="container">
+      <div class="hero-inner">
         <h1 class="serif">
           <span class="line-anim">赋能国企</span><br />
-          <span class="line-anim olive">网络隧道</span><br />
-          <span class="line-anim">安全基建</span>
+          <span class="line-anim"><span class="olive">网络隧道</span></span>&nbsp;<span class="line-anim">安全基建</span>
         </h1>
-        <p class="hero-sub">★ 为中国国有企业提供专业网络隧道与安全基础设施服务</p>
-        <button class="cta-btn" type="button">
-          <span class="fill"></span>
-          <span>了解更多</span>
-          <span class="arrow-wrap">
-            <svg viewBox="0 0 24 24"><path d="M5 12h14"/><path d="M13 5l7 7-7 7"/></svg>
-          </span>
-        </button>
+        <p class="hero-sub hero-sub-anim">
+          <svg class="star-icon" viewBox="0 0 24 24" fill="#819640" stroke="none"><path d="M12 2l2.9 6.3L22 9.3l-5 4.6L18.2 21 12 17.3 5.8 21 7 13.9 2 9.3l7.1-1L12 2z"/></svg>
+          为中国国有企业提供专业网络隧道与安全基础设施服务
+        </p>
+        <div class="hero-cta hero-cta-anim">
+          <button class="cta-btn" type="button">
+            <span class="fill"></span>
+            <span class="btn-text">了解更多</span>
+            <span class="arrow-wrap">
+              <svg viewBox="0 0 256 256"><path d="M221.66,133.66l-72,72a8,8,0,0,1-11.32-11.32L196.69,136H40a8,8,0,0,1,0-16H196.69L138.34,61.66a8,8,0,0,1,11.32-11.32l72,72A8,8,0,0,1,221.66,133.66Z"></path></svg>
+            </span>
+          </button>
+        </div>
 
-        <div class="news-bar" aria-label="滚动新闻">
-          <div class="news-star">★</div>
-          <div id="newsText" class="news-text">远大港湾成功部署国企跨区域安全隧道项目</div>
-          <div class="news-dots" id="newsDots"></div>
+        <div class="news-section">
+          <div class="news-bar" aria-label="滚动新闻">
+            <svg class="news-star" viewBox="0 0 24 24" fill="#819640" stroke="none"><path d="M12 2l2.9 6.3L22 9.3l-5 4.6L18.2 21 12 17.3 5.8 21 7 13.9 2 9.3l7.1-1L12 2z"/></svg>
+            <div id="newsText" class="news-text">远大港湾成功部署国企跨区域安全隧道项目</div>
+            <div class="news-dots" id="newsDots"></div>
+          </div>
         </div>
       </div>
     </section>
@@ -703,7 +793,7 @@
               <p class="feature-desc">开箱即用的加密隧道，适合中小型国企日常办公需求。</p>
             </div>
             <div class="service-bottom">
-              <button class="cta-btn" type="button"><span class="fill"></span><span>立即部署</span><span class="arrow-wrap"><svg viewBox="0 0 24 24"><path d="M5 12h14"/><path d="M13 5l7 7-7 7"/></svg></span></button>
+              <button class="cta-btn" type="button"><span class="fill"></span><span class="btn-text">立即部署</span><span class="arrow-wrap"><svg viewBox="0 0 256 256"><path d="M221.66,133.66l-72,72a8,8,0,0,1-11.32-11.32L196.69,136H40a8,8,0,0,1,0-16H196.69L138.34,61.66a8,8,0,0,1,11.32-11.32l72,72A8,8,0,0,1,221.66,133.66Z"></path></svg></span></button>
             </div>
           </article>
 
@@ -714,7 +804,7 @@
               <p class="feature-desc">针对金融、能源、交通等行业的专属网络隧道优化方案。</p>
             </div>
             <div class="service-bottom">
-              <button class="cta-btn" type="button"><span class="fill"></span><span>立即部署</span><span class="arrow-wrap"><svg viewBox="0 0 24 24"><path d="M5 12h14"/><path d="M13 5l7 7-7 7"/></svg></span></button>
+              <button class="cta-btn" type="button"><span class="fill"></span><span class="btn-text">立即部署</span><span class="arrow-wrap"><svg viewBox="0 0 256 256"><path d="M221.66,133.66l-72,72a8,8,0,0,1-11.32-11.32L196.69,136H40a8,8,0,0,1,0-16H196.69L138.34,61.66a8,8,0,0,1,11.32-11.32l72,72A8,8,0,0,1,221.66,133.66Z"></path></svg></span></button>
             </div>
           </article>
 
@@ -725,7 +815,7 @@
               <p class="feature-desc">为大型央企量身定制的全网络基础设施解决方案。</p>
             </div>
             <div class="service-bottom">
-              <button class="cta-btn" type="button"><span class="fill"></span><span>联系销售</span><span class="arrow-wrap"><svg viewBox="0 0 24 24"><path d="M5 12h14"/><path d="M13 5l7 7-7 7"/></svg></span></button>
+              <button class="cta-btn" type="button"><span class="fill"></span><span class="btn-text">联系销售</span><span class="arrow-wrap"><svg viewBox="0 0 256 256"><path d="M221.66,133.66l-72,72a8,8,0,0,1-11.32-11.32L196.69,136H40a8,8,0,0,1,0-16H196.69L138.34,61.66a8,8,0,0,1,11.32-11.32l72,72A8,8,0,0,1,221.66,133.66Z"></path></svg></span></button>
             </div>
           </article>
         </div>
@@ -1024,6 +1114,16 @@
     }, { threshold: 0.18, rootMargin: '0px 0px -40px 0px' });
 
     revealEls.forEach((el) => observer.observe(el));
+
+    // Navbar shrink on scroll
+    const navWrap = document.querySelector('.nav-wrap');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 60) {
+        navWrap.style.padding = '10px 24px';
+      } else {
+        navWrap.style.padding = '20px 24px';
+      }
+    }, { passive: true });
   </script>
 </body>
 </html>
